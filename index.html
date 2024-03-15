@@ -242,12 +242,25 @@ form {
     </label>
   </fieldset>
   
-  <div class="button-bar">
+  <div id="button-bar" class="button-bar">
     <button>Save</button>
   </div>
 </form>
-	<script>
-    
-  </script>
+<script>
+  function setPosition (evt) {
+    var {iframeHeight, screenBottom} = evt.data;
+    console.log(iframeHeight);
+    console.log(screenBottom);
+    //document.getElementById("button-bar").innerHTML = message;
+  }
+	
+  if (window.addEventListener) {
+    window.addEventListener("message", setPosition, false);
+  }
+  else {
+    window.attachEvent("onmessage", setPosition);
+  }
+	
+</script>
   </body>
 </html>
