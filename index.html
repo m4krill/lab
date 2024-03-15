@@ -22,7 +22,7 @@ form {
     </style>
   </head>
   <body>
-  <h1><em>position: sticky</em> button bar (bottom)</h1>
+  <h1 id="title"><em>position: sticky</em> button bar (bottom)</h1>
 
 <form>
   <fieldset>
@@ -249,9 +249,7 @@ form {
 <script>
   function setPosition (evt) {
     var {iframeHeight, screenBottom} = evt.data;
-    console.log(iframeHeight);
-    console.log(screenBottom);
-    //document.getElementById("button-bar").innerHTML = message;
+    document.getElementById("title").innerHTML = "Height: " + iframeHeight + " Bottom: " + screenBottom;
   }
 	
   if (window.addEventListener) {
