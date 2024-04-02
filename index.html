@@ -247,17 +247,10 @@ form {
   </div>
 </form>
 <script>
-  function setPosition (evt) {
-    var {iframeHeight, screenBottom} = evt.data;
-    document.getElementById("title").innerHTML = "Height: " + iframeHeight + " Bottom: " + screenBottom;
-  }
-	
-  if (window.addEventListener) {
-    window.addEventListener("message", setPosition, false);
-  }
-  else {
-    window.attachEvent("onmessage", setPosition);
-  }
+  window.addEventListener("message", function(event) {
+ var {iframeHeight, screenBottom} = event.data;
+ document.getElementById("title").innerHTML = "Height: " + iframeHeight + " Bottom: " + screenBottom;
+}, false);
 	
 </script>
   </body>
