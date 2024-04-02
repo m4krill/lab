@@ -249,7 +249,14 @@ form {
 <script>
   window.addEventListener("message", function(event) {
  var {iframeHeight, screenBottom} = event.data;
- document.getElementById("title").innerHTML = "Height: " + iframeHeight + " Bottom: " + screenBottom;
+ var buttonBar = document.getElementById("button-bar");
+
+ // Check if iframeHeight is more than screenBottom
+ if (iframeHeight > screenBottom) {
+    // Calculate the difference and set it as the bottom property
+    var bottomValue = iframeHeight - screenBottom;
+    buttonBar.style.bottom = bottomValue + "px";
+ }
 }, false);
 	
 </script>
