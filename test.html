@@ -1,0 +1,32 @@
+
+                        <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <style>
+        #iframe-test {
+            height: 3000px;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="iframe-test" width="600" src="https://m4krill.github.io/lab/" title=""></iframe>
+<script>
+  var iframe = document.getElementById('iframe-test');
+  iframe.onload = function() {
+    postMessageToIframe();
+    window.addEventListener("resize", (event) => postMessageToIframe());
+    window.addEventListener("scroll", (event) => postMessageToIframe());
+  };
+
+  function postMessageToIframe() {
+    var iframeHeight = parseInt(getComputedStyle(iframe).height, 10);
+    var screenBottom = window.scrollY + window.innerHeight;
+    iframe.contentWindow.postMessage({iframeHeight: iframeHeight, screenBottom: screenBottom}, '*');
+  }
+</script>
+  </body>
+</html>
