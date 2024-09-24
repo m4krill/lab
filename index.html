@@ -10,12 +10,15 @@ form {
   padding: 2rem;
 }
 .button-bar {
+  padding: 2rem;
   background: gray;
   position: fixed;
   width: 100%;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-bottom: env(safe-area-inset-bottom, 0);
+  will-change: bottom;
 }
 
 .content {
